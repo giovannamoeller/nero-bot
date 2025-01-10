@@ -4,6 +4,9 @@ import { EnvelopeIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Loader2 } from 'lucide-react';
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 
 interface FormData {
   company: string;
@@ -131,7 +134,8 @@ export default function Home() {
       }
 
       const data = await response.json()
-      setReturnedData(data.detail[0].msg)
+      console.log(data.content)
+      setReturnedData(data.content)
       setFormSent(false)
 
       setFormData({
@@ -369,9 +373,12 @@ export default function Home() {
             </div>
 
             {returnedData && (
-              <Alert className="mb-8">
-                <AlertDescription className="whitespace-pre-wrap">
-                  {returnedData}
+              <Alert className="my-8 bg-gray-900 text-white border-none outline outline-1 -outline-offset-1 outline-white/10">
+                <AlertDescription>
+                  <Markdown rehypePlugins={[rehypeRaw]}
+                            remarkPlugins={[remarkGfm]}>
+                            {returnedData}
+                  </Markdown>
                 </AlertDescription>
               </Alert>
             )}
@@ -396,7 +403,7 @@ export default function Home() {
                     <span>Aguardando resposta...</span>
                   </div>
                 ) : (
-                  'Enviar'
+                  returnedData ? 'Reenviar' : 'Enviar'
                 )}
               </button>
             </div>

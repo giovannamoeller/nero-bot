@@ -72,3 +72,13 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+ul, li, p {
+  line-height: 2rem !important;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
