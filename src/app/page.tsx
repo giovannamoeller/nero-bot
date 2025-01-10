@@ -198,7 +198,7 @@ export default function Home() {
               </div>
             </div>
             <h2 className="text-pretty text-4xl font-semibold tracking-tight bg-gradient-to-r from-gray-200 to-gray-500 inline-block text-transparent bg-clip-text sm:text-5xl">NeroBot</h2>
-            <h3 className='text-white opacity-60 text-2xl sm:text-1xl mt-2'>Descubra o que a inteligência artificial pode fazer por você.</h3>
+            <h4 className='text-white opacity-60 text-2xl sm:text-1xl mt-2'>Descubra o que a inteligência artificial pode fazer por você.</h4>
             <p className="mt-6 text-lg/8 text-gray-300">
             Preencha o formulário abaixo para que possamos entender suas necessidades e sugerir as melhores soluções.
             </p>
